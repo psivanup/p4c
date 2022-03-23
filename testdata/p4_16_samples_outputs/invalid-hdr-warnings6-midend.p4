@@ -25,6 +25,12 @@ struct M {
 }
 
 parser ParserI(packet_in pkt, out H hdr, inout M meta, inout standard_metadata_t smeta) {
+    state last {
+        hdr.u[0].h1.data = 32w1;
+        hdr.u[0].h2.data = 16w1;
+        hdr.u[0].h3.data = 32w1;
+        transition accept;
+    }
     state start {
         hdr.u[0].h1.setValid();
         pkt.extract<Header1>(hdr.u[0].h3);
@@ -32,16 +38,6 @@ parser ParserI(packet_in pkt, out H hdr, inout M meta, inout standard_metadata_t
         hdr.u[0].h1 = hdr.u[0].h3;
         hdr.u[0].h1.data = 32w1;
         transition last;
-    }
-    state next {
-        pkt.extract<Header2>(hdr.u[0].h2);
-        transition last;
-    }
-    state last {
-        hdr.u[0].h1.data = 32w1;
-        hdr.u[0].h2.data = 16w1;
-        hdr.u[0].h3.data = 32w1;
-        transition accept;
     }
 }
 
