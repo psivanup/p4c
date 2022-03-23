@@ -1,0 +1,10 @@
+issue1897-bmv2.p4(54): [--Wwarn=ignore-prop] warning: Result of packet.extract is not defined: Error: Reading field from invalid header union
+        packet.extract(addr.ipv6);
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+[--Wwarn=ignore-prop] warning: Result of AssignmentStatement is not defined: Error: Reading field from invalid header union
+[--Wwarn=ignore-prop] warning: Result of AssignmentStatement is not defined: Error: Reading field from invalid header union
+[--Wwarn=ignore-prop] warning: Result of AssignmentStatement is not defined: Error: Reading field from invalid header union
+[--Wwarn=ignore-prop] warning: Result of AssignmentStatement is not defined: Error: Reading field from invalid header union
+issue1897-bmv2.p4(49): [--Wwarn=ignore-prop] warning: Result of packet.extract is not defined: Error: Reading field from invalid header union
+        packet.extract(addr.ipv4);
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
