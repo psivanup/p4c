@@ -31,3 +31,6 @@ invalid-hdr-warnings5.p4(83): [--Wwarn=invalid_header] warning: accessing a fiel
 invalid-hdr-warnings5.p4(84): [--Wwarn=invalid_header] warning: accessing a field of an invalid header u1.h3
         u1.h3.data = 1;
         ^^^^^
+invalid-hdr-warnings5.p4(51): [--Wwarn=ignore-prop] warning: Result of AssignmentStatement is not defined: Error: Reading field from invalid header
+        hdr.u1.h2.data = 1;
+                       ^

@@ -26,11 +26,11 @@ struct M {
 }
 
 parser ParserI(packet_in pkt, out H hdr, inout M meta, inout standard_metadata_t smeta) {
-    state stateOutOfBound {
-        verify(false, error.StackOutOfBounds);
-    }
     state last {
-        transition stateOutOfBound;
+        hdr.u1.h1.data = 32w1;
+        hdr.u1.h2.data = 16w1;
+        hdr.u1.h3.data = 32w1;
+        transition accept;
     }
     state start {
         hdr.u1.h1.setValid();
