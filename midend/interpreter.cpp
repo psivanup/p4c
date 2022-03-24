@@ -891,7 +891,6 @@ void ExpressionEvaluator::postorder(const IR::Operation_Unary* expression) {
             return;
         }
     }
-
     if (l->is<SymbolicInteger>()) {
         auto li = l->to<SymbolicInteger>();
         clone->expr = li->constant;
