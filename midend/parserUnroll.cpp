@@ -669,7 +669,7 @@ class ParserSymbolicInterpreter {
             auto nextStates = evaluateState(stateInfo, newStates);
             if (nextStates.first == nullptr) {
                 if (nextStates.second && stateInfo->predecessor &&
-                 stateInfo->state->name != stateInfo->predecessor->newState->name) {
+                    stateInfo->state->name != stateInfo->predecessor->newState->name) {
                     // generate call OutOfBound
                     hasOutOfboundState = true;
                     stateInfo->newState = new IR::ParserState(getNewName(stateInfo),
