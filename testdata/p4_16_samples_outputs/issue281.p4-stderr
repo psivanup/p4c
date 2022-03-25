@@ -1,2 +1,5 @@
+issue281.p4(79): [--Wwarn=ignore-prop] warning: Result of b.extract is not defined: Exception: OverwritingHeader
+    b.extract(vlan);
+    ^^^^^^^^^^^^^^^
 [--Wwarn=invalid] warning: Parser cycle cannot be unrolled:
 Parser MyParser state chain: start, start_0, vlan, start_0, vlan, start_0

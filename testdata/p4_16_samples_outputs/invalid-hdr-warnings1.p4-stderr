@@ -22,20 +22,17 @@ invalid-hdr-warnings1.p4(18): [--Wwarn=ignore-prop] warning: Result of Assignmen
 invalid-hdr-warnings1.p4(44): [--Wwarn=ignore-prop] warning: Result of AssignmentStatement is not defined: Error: Reading field from invalid header
         hdr.h2.data = hdr.h2.data + 1; // from next: invalid, from state0: may be invalid, from state1: valid
                     ^
+invalid-hdr-warnings1.p4(26): [--Wwarn=ignore-prop] warning: Result of pkt.extract is not defined: Exception: OverwritingHeader
+        pkt.extract(hdr.h1);
+        ^^^^^^^^^^^^^^^^^^^
 [--Wwarn=invalid] warning: Parser cycle cannot be unrolled:
 Parser ParserI state chain: start, next, next_join, state1, state0, next, next_join, state1
 [--Wwarn=invalid] warning: Parser cycle cannot be unrolled:
-Parser ParserI state chain: start, next, next_join, state1, state0, next, next_join, state0, next, next_join, state1
+Parser ParserI state chain: start, next, next_join, state1, state0, next, next_join, state0
 [--Wwarn=invalid] warning: Parser cycle cannot be unrolled:
-Parser ParserI state chain: start, next, next_join, state1, state0, next, next_join, state0, next, next_join, state0
+Parser ParserI state chain: start, next, next_join, state1, state0, next, next_true, next_join, state1
 [--Wwarn=invalid] warning: Parser cycle cannot be unrolled:
-Parser ParserI state chain: start, next, next_join, state1, state0, next, next_join, state0, next, next_true, next_join, state1
-[--Wwarn=invalid] warning: Parser cycle cannot be unrolled:
-Parser ParserI state chain: start, next, next_join, state1, state0, next, next_join, state0, next, next_true, next_join, state0
-[--Wwarn=invalid] warning: Parser cycle without extracting any bytes:
-Parser ParserI state chain: start, next, next_join, state1, state0, next, next_join, state0, state1, state0
-[--Wwarn=invalid] warning: Parser cycle without extracting any bytes:
-Parser ParserI state chain: start, next, next_join, state1, state0, next, next_join, state0, state1, state1
+Parser ParserI state chain: start, next, next_join, state1, state0, next, next_true, next_join, state0
 [--Wwarn=invalid] warning: Parser cycle without extracting any bytes:
 Parser ParserI state chain: start, next, next_join, state1, state0, state1
 [--Wwarn=invalid] warning: Parser cycle without extracting any bytes:
