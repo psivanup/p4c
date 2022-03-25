@@ -1,0 +1,18 @@
+gauntlet_bounded_loop.p4(29): [--Wwarn=uninitialized_use] warning: hdr.p.p may be uninitialized
+        transition select(hdr.p.p) {
+                          ^^^^^^^
+gauntlet_bounded_loop.p4(29): [--Wwarn=invalid_header] warning: accessing a field of a potentially invalid header hdr.p
+        transition select(hdr.p.p) {
+                          ^^^^^
+gauntlet_bounded_loop.p4(36): [--Wwarn=ignore-prop] warning: Result of packet.extract is not defined: Exception: OverwritingHeader
+        b.extract(hdr.nop);
+        ^^^^^^^^^^^^^^^^^^
+[--Wwarn=invalid] warning: Parser cycle cannot be unrolled:
+Parser p state chain: start, next, next_join, parse_hdr, next, next_join, parse_hdr, next
+[--Wwarn=invalid] warning: Parser cycle cannot be unrolled:
+Parser p state chain: start, next, next_join, parse_hdr, next, next_true, next_join, parse_hdr, next, next_join
+gauntlet_bounded_loop.p4(26): [--Wwarn=ignore-prop] warning: Result of packet.extract is not defined: Exception: OverwritingHeader
+            b.extract(hdr.p);
+            ^^^^^^^^^^^^^^^^
+[--Wwarn=invalid] warning: Parser cycle cannot be unrolled:
+Parser p state chain: start, next, next_join, parse_hdr, next, next_true, next_join, parse_hdr, next, next_true, next_join
