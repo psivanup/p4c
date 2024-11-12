@@ -439,8 +439,8 @@ void RegisterReadWrite::AnalyzeActionWithRegisterCalls::createRegisterAction(
 
     auto apply_name = reg_path->name + "_" + act->name;
     auto *externalName = new IR::StringLiteral(IR::ID("." + apply_name));
-    auto *annots = new IR::Annotations();
-    annots->addAnnotation(IR::ID("name"), externalName);
+    auto *annots = new IR::Vector<IR::Annotation>();
+    annots->emplace_back(IR::ID("name"), externalName);
 
     if (!info.reg_action) {
         auto apply_type = new IR::Type_Method(IR::Type_Void::get(), info.apply_params, "apply"_cs);

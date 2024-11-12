@@ -164,7 +164,7 @@ safe_vector<Slice> Slice::split(const safe_vector<Slice> &vec, safe_vector<Slice
 
 bool has_user_annotation(const IR::IAnnotated *node) {
     if (!node) return false;
-    for (auto *annotation : node->getAnnotations()->annotations) {
+    for (auto *annotation : node->annotations) {
         if (annotation->name == PragmaUserAnnotation::name) return true;
     }
 

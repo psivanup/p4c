@@ -610,11 +610,9 @@ class PadFixedSizeHeaders : public Inspector {
 
         auto genPadding = [&](int size, int id) {
             cstring padFieldName = "__pad_" + cstring::to_cstring(id);
-            auto *fieldAnnotations =
-                new IR::Annotations({new IR::Annotation(IR::ID("padding"), {}),
-                                     new IR::Annotation(IR::ID("overlayable"), {})});
             const IR::StructField *padField =
-                new IR::StructField(padFieldName, fieldAnnotations, IR::Type::Bits::get(size));
+                new IR::StructField(IR::ID(padFieldName), {new IR::Annotation(IR::ID("padding"), {}),
+                                     new IR::Annotation(IR::ID("overlayable"), {})}, IR::Type::Bits::get(size));
             return padField;
         };
 

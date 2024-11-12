@@ -148,10 +148,10 @@ const IR::Node *InjectTmpVar::DoInject::postorder(IR::MethodCallStatement *mcs) 
 
 void FlattenHeader::flattenType(const IR::Type *type) {
     if (auto st = type->to<IR::Type_StructLike>()) {
-        allAnnotations.push_back(st->annotations);
+        allAnnotations.push_back(st->getAnnotations());
         for (auto f : st->fields) {
             nameSegments.push_back(f->name);
-            allAnnotations.push_back(f->annotations);
+            allAnnotations.push_back(f->getAnnotations());
             srcInfos.push_back(f->srcInfo);
             flattenType(typeMap->getType(f, true));
             srcInfos.pop_back();
@@ -190,13 +190,13 @@ cstring FlattenHeader::makeName(std::string_view sep) const {
  * one. Duplicates are resolved, with preference given to the ones towards the
  * end of allAnnotations, which correspond to the most "nested" ones.
  */
-const IR::Annotations *FlattenHeader::mergeAnnotations() const {
-    auto mergedAnnotations = new IR::Annotations();
+const IR::Vector<IR::Annotation> *FlattenHeader::mergeAnnotations() const {
+    auto mergedAnnotations = new IR::Vector<IR::Annotation>();
     for (auto annosIt = allAnnotations.rbegin(); annosIt != allAnnotations.rend(); annosIt++) {
         for (auto anno : (*annosIt)->annotations) {
             // if an annotation with the same name was added previously, skip
             if (mergedAnnotations->getSingle(anno->name)) continue;
-            mergedAnnotations->add(anno);
+            mergedAnnotations->push_back(anno);
         }
     }
     return mergedAnnotations;

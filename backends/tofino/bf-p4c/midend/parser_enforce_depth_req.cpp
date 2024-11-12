@@ -957,8 +957,7 @@ class AddParserPad : public Modifier {
         // We only need to loop when we need more than 1 state extracts
         auto *stateLoop = new IR::ParserState(
             prsrCheckLoopState[dst],
-            new IR::Annotations(
-                IR::Vector<IR::Annotation>({new IR::Annotation("max_loop_depth", loopStates)})),
+            IR::Vector<IR::Annotation>({new IR::Annotation("max_loop_depth", loopStates)}),
             IR::IndexedVector<IR::StatOrDecl>({decOp}), (prsrNumPadStates > 1) ? se : se_no_loop);
         if (dst == IR::ParserState::accept) stateLoop->components.push_back(extOp);
 

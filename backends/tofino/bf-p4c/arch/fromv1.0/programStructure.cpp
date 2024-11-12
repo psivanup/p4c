@@ -419,7 +419,7 @@ IR::BlockStatement *generate_tna_hash_block_statement(P4V1::TnaProgramStructure 
     declArgs->push_back(new IR::Argument(algo));
     auto declType =
         new IR::Type_Specialized(new IR::Type_Name("Hash"), new IR::Vector<IR::Type>({ttype}));
-    const IR::Annotations *annos = IR::Annotations::empty;
+    const IR::Vector<IR::Annotation> annos;
     auto symmetricAnnotation = fl->annotations->getSingle("symmetric"_cs);
     if (symmetricAnnotation) {
         if (symmetricAnnotation->expr.size() == 2) {

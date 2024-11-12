@@ -122,9 +122,7 @@ class AnnotateVarbitExtractStates : public Transform {
             if (!method) continue;
 
             if (method->member == "extract" && call->arguments->size() == 2) {
-                IR::Annotations *annotations = state->annotations->clone();
-                annotations->add(new IR::Annotation(IR::ID("dontmerge"), {}));
-                state->annotations = annotations;
+                state->annotations.push_back(new IR::Annotation(IR::ID("dontmerge"), {}));
                 break;
             }
         }

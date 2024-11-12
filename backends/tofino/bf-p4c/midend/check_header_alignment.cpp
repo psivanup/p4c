@@ -165,9 +165,8 @@ const IR::Node *AddPaddingFields::preorder(IR::Type_Header *header) {
         // annotation which could be introduced by header flattening.
         auto hidden = field->getAnnotation("padding"_cs);
         if (hidden != nullptr) {
-            auto *fieldAnnotations =
-                new IR::Annotations({new IR::Annotation(IR::ID("padding"), {})});
-            structFields.push_back(new IR::StructField(field->name, fieldAnnotations, field->type));
+            structFields.push_back(new IR::StructField(field->name,
+                                       {new IR::Annotation(IR::ID("padding"), {})}, field->type));
             programmer_inserted_padding += canonicalType->width_bits();
             continue;
         }
@@ -178,10 +177,9 @@ const IR::Node *AddPaddingFields::preorder(IR::Type_Header *header) {
         if (alignment != 0) {
             cstring padFieldName = "__pad_"_cs;
             padFieldName += cstring::to_cstring(padFieldId++);
-            auto *fieldAnnotations =
-                new IR::Annotations({new IR::Annotation(IR::ID("padding"), {})});
-            structFields.push_back(new IR::StructField(padFieldName, fieldAnnotations,
-                                                       IR::Type::Bits::get(alignment)));
+            structFields.push_back(new IR::StructField(padFieldName,
+                                       {new IR::Annotation(IR::ID("padding"), {})},
+                                       IR::Type::Bits::get(alignment)));
             programmer_inserted_padding = 0;
         }
         structFields.push_back(field);

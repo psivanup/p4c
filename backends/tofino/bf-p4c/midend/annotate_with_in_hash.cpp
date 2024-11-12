@@ -263,7 +263,7 @@ const IR::Node *DoAnnotateWithInHash::preorder(IR::AssignmentStatement *assignme
                                                       << "\t" << assignment);
     prune();  // The annotated assignment statement would be visited recursively.
     return new IR::BlockStatement(assignment->srcInfo,
-                                  new IR::Annotations({new IR::Annotation(IR::ID("in_hash"), {})}),
+                                  {new IR::Annotation(IR::ID("in_hash"), {})},
                                   {assignment});
 }
 

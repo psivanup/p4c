@@ -707,12 +707,14 @@ bool IR::MAU::Table::is_a_gateway_table_only() const {
     return false;
 }
 
-const IR::Annotations *IR::MAU::Table::getAnnotations() const {
-    return match_table ? match_table->getAnnotations() : IR::Annotations::empty;
+const IR::Vector<IR::Annotation> &IR::MAU::Table::getAnnotations() const {
+    static IR::Vector<IR::Annotation> empty;
+    return match_table ? match_table->getAnnotations() : empty;
 }
 
-const IR::Annotation *IR::MAU::Table::getAnnotation(cstring name) const {
-    return match_table ? match_table->getAnnotation(name) : nullptr;
+IR::Vector<IR::Annotation> &IR::MAU::Table::getAnnotations() {
+    static IR::Vector<IR::Annotation> empty;
+    return empty;
 }
 
 const IR::Expression *IR::MAU::Table::getExprAnnotation(cstring name) const {
@@ -776,7 +778,7 @@ bool IR::MAU::Table::getAnnotation(cstring name, IR::ID &val) const {
 bool IR::MAU::Table::getAnnotation(cstring name, std::vector<IR::ID> &val) const {
     if (!match_table) return false;
     bool rv = false;
-    for (auto *annot : match_table->getAnnotations()->annotations) {
+    for (auto *annot : match_table->getAnnotations()) {
         if (annot->name != name) continue;
         rv = true;  // found at least 1
         for (auto *expr : annot->expr) {
@@ -796,7 +798,7 @@ int IR::MAU::Table::get_placement_priority_int() const {
     int val = 0;
     if (!match_table) return val;
     bool val_set = false;
-    for (auto &annot : match_table->getAnnotations()->annotations) {
+    for (auto &annot : match_table->getAnnotations()) {
         if (annot->name != "placement_priority") continue;
         for (auto *expr : annot->expr) {
             if (auto constant = expr->to<IR::Constant>()) {
@@ -816,7 +818,7 @@ int IR::MAU::Table::get_placement_priority_int() const {
 std::set<cstring> IR::MAU::Table::get_placement_priority_string() const {
     std::set<cstring> rv;
     if (!match_table) return rv;
-    for (auto &annot : match_table->getAnnotations()->annotations) {
+    for (auto &annot : match_table->getAnnotations()) {
         if (annot->name != "placement_priority") continue;
         for (auto *expr : annot->expr) {
             if (auto sl = expr->to<IR::StringLiteral>()) {
@@ -868,11 +870,11 @@ int IR::MAU::Table::get_provided_stage(int geq_stage, int *req_entries, int *fla
     };
 
     const IR::Annotation *stage_annot = nullptr;
-    auto stage_annotations = match_table->annotations->where(
+    auto *stage_annotations = match_table->getAnnotations().where(
         [](const IR::Annotation *annot) { return annot->name == "stage"; });
     if (!stage_annotations) return -1;
 
-    for (auto *annot : stage_annotations->annotations) {
+    for (auto *annot : *stage_annotations) {
         if (!checkPragma(annot)) return -1;
 
         int curr_stage = annot->expr.at(0)->to<IR::Constant>()->asInt();
@@ -1022,7 +1024,7 @@ void IR::MAU::Table::remove_gateway() {
 int IR::MAU::TableSeq::uid_ctr = 0;
 
 cstring IR::MAU::Action::externalName() const {
-    if (auto *name_annot = annotations->getSingle("name"_cs)) return name_annot->getName();
+    if (auto *name_annot = getAnnotation("name"_cs)) return name_annot->getName();
     return name.toString();
 }
 

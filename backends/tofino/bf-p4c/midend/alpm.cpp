@@ -377,12 +377,12 @@ const IR::P4Table *SplitAlpm::create_preclassifier_table(const IR::P4Table *tbl,
 
     properties->push_back(new IR::Property(
         "alpm_preclassifier",
-        new IR::Annotations({new IR::Annotation(IR::Annotation::hiddenAnnotation, {})}),
+        {new IR::Annotation(IR::Annotation::hiddenAnnotation, {})},
         new IR::ExpressionValue(new IR::BoolLiteral(true)), false));
 
     properties->push_back(new IR::Property(
         "alpm_preclassifier_number_entries",
-        new IR::Annotations({new IR::Annotation(IR::Annotation::hiddenAnnotation, {})}),
+        {new IR::Annotation(IR::Annotation::hiddenAnnotation, {})},
         new IR::ExpressionValue(new IR::Constant(number_entries)), false));
 
     if (auto prop = tbl->properties->getProperty("requires_versioning"_cs)) {
@@ -401,7 +401,7 @@ const IR::P4Table *SplitAlpm::create_preclassifier_table(const IR::P4Table *tbl,
 bool SplitAlpm::values_through_pragmas(const IR::P4Table *tbl, int &number_partitions,
                                        int &number_subtrees_per_partition) {
     auto annot = tbl->getAnnotations();
-    if (auto s = annot->getSingle(ALGORITHMIC_LPM_PARTITIONS)) {
+    if (auto s = get(annot, ALGORITHMIC_LPM_PARTITIONS)) {
         ERROR_CHECK(s->expr.size() > 0,
                     "%s: Please provide a valid %s "
                     "for table %s",
@@ -423,7 +423,7 @@ bool SplitAlpm::values_through_pragmas(const IR::P4Table *tbl, int &number_parti
         }
     }
 
-    if (auto s = annot->getSingle(ALGORITHMIC_LPM_SUBTREES_PER_PARTITION)) {
+    if (auto s = get(annot, ALGORITHMIC_LPM_SUBTREES_PER_PARTITION)) {
         ERROR_CHECK(s->expr.size() > 0,
                     "%s: Please provide a valid %s "
                     "for table %s",
@@ -547,7 +547,7 @@ bool SplitAlpm::pragma_exclude_msbs(const IR::P4Table *tbl,
         }
     }
     auto annot = tbl->getAnnotations();
-    for (auto an : annot->annotations) {
+    for (auto an : annot) {
         if (an->name != ALGORITHMIC_LPM_ATCAM_EXCLUDE_FIELD_MSBS) continue;
         if (an->expr.size() != 1 && an->expr.size() != 2) {
             error(
