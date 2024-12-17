@@ -365,6 +365,14 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>has_flow_join
 <tr class="memitem:af0f2f7e8614d27ed28400a7e57653c70 inherit pub_methods_class_p4_1_1_visitor" id="r_af0f2f7e8614d27ed28400a7e57653c70"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="class_p4_1_1_visitor_1_1profile__t.html">profile_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>init_apply</b> (const <a class="el" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root, const <a class="el" href="struct_p4_1_1_visitor___context.html">Context</a> *parent_context)</td></tr>
 <tr class="separator:af0f2f7e8614d27ed28400a7e57653c70 inherit pub_methods_class_p4_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934c8d6a08e0e70bc8d7bfb444d9d7c3 inherit pub_methods_class_p4_1_1_visitor" id="r_a934c8d6a08e0e70bc8d7bfb444d9d7c3"><td class="memTemplParams" colspan="2">
+template&lt;class T &gt; </td></tr>
+<tr class="memitem:a934c8d6a08e0e70bc8d7bfb444d9d7c3 inherit pub_methods_class_p4_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>isInContext</b> () const</td></tr>
+<tr class="separator:a934c8d6a08e0e70bc8d7bfb444d9d7c3 inherit pub_methods_class_p4_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a298fb16577969a451da1f9af1db2565a inherit pub_methods_class_p4_1_1_visitor" id="r_a298fb16577969a451da1f9af1db2565a"><td class="memTemplParams" colspan="2">
+template&lt;class T &gt; </td></tr>
+<tr class="memitem:a298fb16577969a451da1f9af1db2565a inherit pub_methods_class_p4_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>isInContext</b> (const <a class="el" href="struct_p4_1_1_visitor___context.html">Context</a> *&amp;c) const</td></tr>
+<tr class="separator:a298fb16577969a451da1f9af1db2565a inherit pub_methods_class_p4_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a904b78dd012db5d096c7c8ab15aaff inherit pub_methods_class_p4_1_1_visitor" id="r_a5a904b78dd012db5d096c7c8ab15aaff"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInContext</b> (const <a class="el" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *n) const</td></tr>
 <tr class="separator:a5a904b78dd012db5d096c7c8ab15aaff inherit pub_methods_class_p4_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -441,8 +449,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> () const</t
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a58be15419a805d0df91fef4a0419ca09" id="r_a58be15419a805d0df91fef4a0419ca09"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58be15419a805d0df91fef4a0419ca09">ComputeWriteSet</a> (const <a class="el" href="class_p4_1_1_compute_write_set.html">ComputeWriteSet</a> *source, <a class="el" href="class_p4_1_1_program_point.html">ProgramPoint</a> context, <a class="el" href="class_p4_1_1_definitions.html">Definitions</a> *definitions, std::unordered_set&lt; <a class="el" href="struct_p4_1_1loc__t.html">loc_t</a> &gt; &amp;cached_locs)</td></tr>
-<tr class="separator:a58be15419a805d0df91fef4a0419ca09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3418224e871edb2efc318f5fc7e41d3d" id="r_a3418224e871edb2efc318f5fc7e41d3d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3418224e871edb2efc318f5fc7e41d3d">ComputeWriteSet</a> (const <a class="el" href="class_p4_1_1_compute_write_set.html">ComputeWriteSet</a> *source, <a class="el" href="class_p4_1_1_program_point.html">ProgramPoint</a> context, <a class="el" href="class_p4_1_1_definitions.html">Definitions</a> *definitions, std::shared_ptr&lt; CachedLocs &gt; cached_locs)</td></tr>
+<tr class="separator:a3418224e871edb2efc318f5fc7e41d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a101d879ae626db0d9ebb8a77272ede28" id="r_a101d879ae626db0d9ebb8a77272ede28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a101d879ae626db0d9ebb8a77272ede28">dbprint</a> (std::ostream &amp;out) const override</td></tr>
 <tr class="separator:a101d879ae626db0d9ebb8a77272ede28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2478c9e8837e019bebd15e9c95fe2920" id="r_a2478c9e8837e019bebd15e9c95fe2920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2478c9e8837e019bebd15e9c95fe2920">end_apply</a> () override</td></tr>
@@ -599,8 +607,8 @@ const <a class="el" href="class_p4_1_1_visitor.html">Visitor</a> *&#160;</td><td
 <p>This pass is run for each parser and control separately. It controls precisely the visit order &mdash; to simulate a symbolic execution of the program.</p>
 <dl class="section pre"><dt>Precondition</dt><dd>Must be executed after variable initializers have been removed. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a58be15419a805d0df91fef4a0419ca09" name="a58be15419a805d0df91fef4a0419ca09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58be15419a805d0df91fef4a0419ca09">&#9670;&#160;</a></span>ComputeWriteSet()</h2>
+<a id="a3418224e871edb2efc318f5fc7e41d3d" name="a3418224e871edb2efc318f5fc7e41d3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3418224e871edb2efc318f5fc7e41d3d">&#9670;&#160;</a></span>ComputeWriteSet()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -626,7 +634,7 @@ const <a class="el" href="class_p4_1_1_visitor.html">Visitor</a> *&#160;</td><td
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::unordered_set&lt; <a class="el" href="struct_p4_1_1loc__t.html">loc_t</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>cached_locs</em></span>&#160;)</td>
+          <td class="paramtype">std::shared_ptr&lt; CachedLocs &gt;</td>          <td class="paramname"><span class="paramname"><em>cached_locs</em></span>&#160;)</td>
         </tr>
       </table>
   </td>

@@ -1119,6 +1119,7 @@ var hierarchy =
             [ "P4::IR::Vector< IR::NamedExpression >", "class_p4_1_1_i_r_1_1_vector.html", [
               [ "P4::IR::IndexedVector< IR::NamedExpression >", "class_p4_1_1_i_r_1_1_indexed_vector.html", null ]
             ] ],
+            [ "P4::IR::Vector< IR::Annotation >", "class_p4_1_1_i_r_1_1_vector.html", null ],
             [ "P4::IR::Vector< IR::Expression >", "class_p4_1_1_i_r_1_1_vector.html", null ],
             [ "P4::IR::Vector< P4::IR::Node >", "class_p4_1_1_i_r_1_1_vector.html", [
               [ "P4::IR::IndexedVector< P4::IR::Node >", "class_p4_1_1_i_r_1_1_indexed_vector.html", null ]
@@ -1129,7 +1130,6 @@ var hierarchy =
             [ "P4::IR::Vector< IR::MAU::Table >", "class_p4_1_1_i_r_1_1_vector.html", null ],
             [ "P4::IR::Vector< IR::Type >", "class_p4_1_1_i_r_1_1_vector.html", null ],
             [ "P4::IR::Vector< IR::Argument >", "class_p4_1_1_i_r_1_1_vector.html", null ],
-            [ "P4::IR::Vector< IR::Annotation >", "class_p4_1_1_i_r_1_1_vector.html", null ],
             [ "P4::IR::Vector< IR::Declaration >", "class_p4_1_1_i_r_1_1_vector.html", [
               [ "P4::IR::IndexedVector< IR::Declaration >", "class_p4_1_1_i_r_1_1_indexed_vector.html", null ]
             ] ],
@@ -2392,6 +2392,7 @@ var hierarchy =
     [ "P4::Util::Hasher< cstring >", "struct_p4_1_1_util_1_1_hasher_3_01cstring_01_4.html", null ],
     [ "P4::Util::Hasher< HalfOpenRange< Unit, Order > >", "struct_p4_1_1_util_1_1_hasher_3_01_half_open_range_3_01_unit_00_01_order_01_4_01_4.html", null ],
     [ "P4::Util::Hasher< IR::ID >", "struct_p4_1_1_util_1_1_hasher_3_01_i_r_1_1_i_d_01_4.html", null ],
+    [ "P4::Util::Hasher< P4::loc_t >", "struct_p4_1_1_util_1_1_hasher_3_01_p4_1_1loc__t_01_4.html", null ],
     [ "P4::Util::Hasher< P4::ProgramPoint >", "struct_p4_1_1_util_1_1_hasher_3_01_p4_1_1_program_point_01_4.html", null ],
     [ "P4::Util::Hasher< std::pair< T1, T2 > >", "struct_p4_1_1_util_1_1_hasher_3_01std_1_1pair_3_01_t1_00_01_t2_01_4_01_4.html", null ],
     [ "P4::Util::Hasher< std::shared_ptr< T > >", "struct_p4_1_1_util_1_1_hasher_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html", null ],
@@ -2541,7 +2542,7 @@ var hierarchy =
           [ "BuildP4HashFunction", "class_build_p4_hash_function.html", null ],
           [ "CalcParserCriticalPath", "class_calc_parser_critical_path.html", null ],
           [ "CheckForUnallocatedTemps", "class_check_for_unallocated_temps.html", null ],
-          [ "CheckParserMultiWrite", "group__parde.html#struct_check_parser_multi_write", null ],
+          [ "CheckParserMultiWrite", "group__parde.html#class_check_parser_multi_write", null ],
           [ "CheckUninitializedAndOverlayedReads", "class_check_uninitialized_and_overlayed_reads.html", null ],
           [ "Clustering", "class_clustering.html", null ],
           [ "CollectDarkCandidates", "class_collect_dark_candidates.html", null ],
@@ -2900,7 +2901,7 @@ var hierarchy =
         [ "Logging::Manifest", "class_logging_1_1_manifest.html", null ],
         [ "MapDestToInstruction", "struct_map_dest_to_instruction.html", null ],
         [ "MapFieldToExpr", "class_map_field_to_expr.html", null ],
-        [ "MapFieldToParserStates", "struct_map_field_to_parser_states.html", null ],
+        [ "MapFieldToParserStates", "class_map_field_to_parser_states.html", null ],
         [ "MapTablesToActions", "class_map_tables_to_actions.html", null ],
         [ "MarkDarkCandidates", "class_mark_dark_candidates.html", null ],
         [ "MarkFieldAsBridged", "class_mark_field_as_bridged.html", null ],
@@ -3291,6 +3292,7 @@ var hierarchy =
         [ "P4::CheckTableSize", "class_p4_1_1_check_table_size.html", null ],
         [ "P4::DoSingleArgumentSelect", "class_p4_1_1_do_single_argument_select.html", null ],
         [ "P4::HeaderTypeMaxLengthCalculator", "class_p4_1_1_header_type_max_length_calculator.html", null ],
+        [ "P4::HierarchicalNames", "class_p4_1_1_hierarchical_names.html", null ],
         [ "P4::MoveToElseAfterBranch", "class_p4_1_1_move_to_else_after_branch.html", null ],
         [ "P4::P4V1::ModifyParserForChecksum", "class_p4_1_1_p4_v1_1_1_modify_parser_for_checksum.html", null ],
         [ "P4::P4V1::RemoveBuiltins", "class_p4_1_1_p4_v1_1_1_remove_builtins.html", null ],
@@ -3603,7 +3605,6 @@ var hierarchy =
         [ "P4::HSIndexTransform", "class_p4_1_1_h_s_index_transform.html", null ],
         [ "P4::HandleNoMatch", "class_p4_1_1_handle_no_match.html", null ],
         [ "P4::HandleValidityHeaderUnion", "class_p4_1_1_handle_validity_header_union.html", null ],
-        [ "P4::HierarchicalNames", "class_p4_1_1_hierarchical_names.html", null ],
         [ "P4::InlineControlFlow", "class_p4_1_1_inline_control_flow.html", null ],
         [ "P4::InstantiateDirectCalls", "class_p4_1_1_instantiate_direct_calls.html", null ],
         [ "P4::KeySideEffect", "class_p4_1_1_key_side_effect.html", null ],
@@ -3798,7 +3799,7 @@ var hierarchy =
     [ "PHV::AllocContext", "class_p_h_v_1_1_alloc_context.html", null ],
     [ "PHV::AllocSetting", "namespace_p_h_v.html#struct_p_h_v_1_1_alloc_setting", null ],
     [ "PHV::AllocSlice", "class_p_h_v_1_1_alloc_slice.html", null ],
-    [ "PHV::AllocUtils", "struct_p_h_v_1_1_alloc_utils.html", null ],
+    [ "PHV::AllocUtils", "class_p_h_v_1_1_alloc_utils.html", null ],
     [ "PHV::ClusterStats", "class_p_h_v_1_1_cluster_stats.html", [
       [ "PHV::AlignedCluster", "class_p_h_v_1_1_aligned_cluster.html", null ],
       [ "PHV::RotationalCluster", "class_p_h_v_1_1_rotational_cluster.html", null ],
@@ -4106,6 +4107,7 @@ var hierarchy =
       [ "P4::safe_vector< const IR::BFN::Pipe * >", "class_p4_1_1safe__vector.html", null ],
       [ "P4::safe_vector< IXBar::Use::Byte >", "class_p4_1_1safe__vector.html", null ],
       [ "P4::safe_vector< const IR::NamedExpression * >", "class_p4_1_1safe__vector.html", null ],
+      [ "P4::safe_vector< const IR::Annotation * >", "class_p4_1_1safe__vector.html", null ],
       [ "P4::safe_vector< const IR::Expression * >", "class_p4_1_1safe__vector.html", null ],
       [ "P4::safe_vector< const P4::IR::Node * >", "class_p4_1_1safe__vector.html", null ],
       [ "P4::safe_vector< const IR::StructField * >", "class_p4_1_1safe__vector.html", null ],
@@ -4121,7 +4123,6 @@ var hierarchy =
       [ "P4::safe_vector< P4::UniqueId >", "class_p4_1_1safe__vector.html", null ],
       [ "P4::safe_vector< const IR::Type * >", "class_p4_1_1safe__vector.html", null ],
       [ "P4::safe_vector< const IR::Argument * >", "class_p4_1_1safe__vector.html", null ],
-      [ "P4::safe_vector< const IR::Annotation * >", "class_p4_1_1safe__vector.html", null ],
       [ "P4::safe_vector< const IR::Declaration * >", "class_p4_1_1safe__vector.html", null ],
       [ "P4::safe_vector< const IR::StatOrDecl * >", "class_p4_1_1safe__vector.html", null ],
       [ "P4::safe_vector< const IR::DpdkAsmStatement * >", "class_p4_1_1safe__vector.html", null ],
